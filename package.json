@@ -4,7 +4,7 @@
   "description": "College Portal Api Collections",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "Osanyinlokun Oladiipo Ernest",
