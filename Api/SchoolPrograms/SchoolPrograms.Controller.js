@@ -8,6 +8,7 @@ const {
 } = require("./SchoolPrograms.Model");
 
 const viewSchoolProgramList = (req, res) => {
+  console.log("got here");
   viewList((err, result) => {
     if (err) {
       console.log(err);
