@@ -40,7 +40,7 @@ const createClient = (data, callBack) => {
     dateFormat(new Date(), "yyyymmddhMMss");
   const client_token = sign(
     { token: tmp + Math.floor(Math.random() * 10000) },
-    process.env.PRIVATEKEY
+    process.env.PRIVATEKEY || "s0ck3tw0rks"
   );
   //insert into the database
   pool.query(

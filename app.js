@@ -91,6 +91,6 @@ app.use("/api/users", validateUserToken, usersRouter);
 // app.use("/api/applications", validateUserToken, applicationsRouter);
 
 //listen to a port
-app.listen(process.env.APP_PORT, () => {
-  console.log("Server up and running on port: ", process.env.APP_PORT);
+app.listen(process.env.PORT, () => {
+  console.log("Server up and running on port: ", process.env.PORT);
 });

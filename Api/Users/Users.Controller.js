@@ -77,7 +77,8 @@ const loginUser = (req, res) => {
       });
     }
     result.password = undefined;
-    const token = sign({ payload: result }, process.env.PRIVATEKEY, {
+    const PRIVATEKEY = process.env.PRIVATEKEY || "s0ck3tw0rks";
+    const token = sign({ payload: result }, PRIVATEKEY, {
       expiresIn: "1h",
     });
     return res.status(200).send({
