@@ -76,17 +76,16 @@ const loginUser = (req, res) => {
         message: err.message,
       });
     }
-    result.password = undefined;
-    const PRIVATEKEY = process.env.PRIVATEKEY || "s0ck3tw0rks";
+    result = result.payload;
+    delete result.password;
+    const PRIVATEKEY = process.env.PRIVATEKEY;
     const token = sign({ payload: result }, PRIVATEKEY, {
       expiresIn: "1h",
     });
     return res.status(200).send({
       success: true,
-      data: {
-        message: "logged in successfully",
-        payload: { token: token },
-      },
+      message: "logged in successfully",
+      payload: { token: token, user_details: result },
     });
   });
 };

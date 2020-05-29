@@ -1,8 +1,8 @@
 const nodemailer = require("nodemailer");
 
 const getTransporter = () => {
-  const EMAIL_USERNAME = process.env.EMAIL_USERNAME || "donmode4u@gmail.com";
-  const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD || "ernest2036";
+  const EMAIL_USERNAME = process.env.EMAIL_USERNAME;
+  const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD;
   return nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -13,7 +13,7 @@ const getTransporter = () => {
 };
 
 const setOption = (receiver, subject, content) => {
-  const EMAIL_USERNAME = process.env.EMAIL_USERNAME || "donmode4u@gmail.com";
+  const EMAIL_USERNAME = process.env.EMAIL_USERNAME;
   return {
     from: EMAIL_USERNAME,
     to: receiver,
@@ -31,7 +31,7 @@ const SendMail = (receiver, subject, content) => {
         console.log("errooor::: ", error);
         reject({ success: false, error: error });
       } else {
-        console.log("success::: ");
+        console.log("success::: mail sent successfuly");
 
         resolve({ success: true, message: "Mail sent successfully" });
       }

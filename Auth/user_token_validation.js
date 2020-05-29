@@ -4,7 +4,7 @@ const checkToken = (req, res, next) => {
   let token = req.get("authorization");
   if (token) {
     token = token.slice(7);
-    const PRIVATEKEY = process.env.PRIVATEKEY || "s0ck3tw0rks";
+    const PRIVATEKEY = process.env.PRIVATEKEY;
     verify(token, PRIVATEKEY, (err, decode) => {
       if (err) {
         return res.send({
